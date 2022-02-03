@@ -22,10 +22,11 @@
 🚩 목차
 - [SQL 기초편][A]
 - [SQL 중급편][B]
-- SQL 고급편
+- [SQL 고급편][C]
 
 
 
 [H]: https://www.inflearn.com/roadmaps/400 
 [A]: https://github.com/Data-ssung/sql/tree/main/sql_basic
 [B]: https://github.com/Data-ssung/sql/tree/main/sql_Intermediate
+[C]: https://github.com/Data-ssung/sql/tree/main/sql_advanced
