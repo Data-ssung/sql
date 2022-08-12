@@ -1,0 +1,40 @@
+NULL과 더하기에 관하여
+
+-- 1. NULL이 포함된 컬럼의 합 
+-- 결과 : 3, NULL 무시하고 더하기 가능
+WITH T AS ( 
+SELECT NULL AS T
+	 , 1 AS T1
+	 , NULL AS T2
+FROM SYSIBM.SYSDUMMY1
+
+UNION 
+SELECT '확인' AS T
+	 , 1 AS T1
+     , 3 AS T2
+FROM SYSIBM.SYSDUMMY1
+)
+
+SELECT SUM(T2)
+FROM T
+;
+
+-- 2. NULL이 포함된 컬럼들의 합
+-- 결과 : 1열은 결과 NULL, 2열은 4
+--> NULL 무시하고 결과 추출할 경우, NVL 처리해주면 됨
+WITH T AS ( 
+SELECT '1열' AS T
+	 , 1 AS T1
+	 , NULL AS T2
+FROM SYSIBM.SYSDUMMY1
+
+UNION 
+SELECT '2열' AS T
+	 , 1 AS T1
+     , 3 AS T2
+FROM SYSIBM.SYSDUMMY1
+)
+
+SELECT T, T1+T2 -- NVL(T1,0)+NVL(T2,0)
+FROM T
+;
